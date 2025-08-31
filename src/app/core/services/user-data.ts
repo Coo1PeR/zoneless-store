@@ -1,15 +1,22 @@
-import {inject, Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {User} from '../models/user';
-import {environment} from '../../../environments/environment';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { User } from '../models/user';
+import { environment } from '../../../environments/environment';
+import { signalFromRequest } from '../../shared/signal-from-request';
 
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class UserData {
     private http = inject(HttpClient);
     private URL = environment.apiUrl;
+
+    public userList = signalFromRequest<User[]>(this.getAllUsers(), {
+        initialValue: [],
+        errorValue: [],
+        onError: (err) => console.error('an error occurred while loading the list of buyers', err),
+    });
 
     getAllUsers(): Observable<User[]> {
         return this.http.get<User[]>(`${this.URL}/users`);

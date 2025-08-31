@@ -1,0 +1,17 @@
+<div class="admin-sidenav__top">
+    <nav>
+        <ul>
+            @for (link of sidenavLinks; track link.path) {
+                <li>
+                    <a [routerLink]="link.path" class="admin-sidenav__link" routerLinkActive="admin-sienav__link_active">
+                        <p class="admin-sidenav__label body-2">
+                            {{ link.label }}
+                        </p>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+
+</div>
+<div class="admin-sidenav__bottom"></div>

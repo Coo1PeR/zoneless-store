@@ -1,0 +1,9 @@
+@if (userList().length > 0) {
+    @for (user of userList(); track user.id) {
+        <p>
+            <span>{{ user.id }}</span>
+            <span>{{ user.username }}</span>
+            <span>{{ user.email }}</span>
+        </p>
+    }
+}
