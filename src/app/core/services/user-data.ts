@@ -2,8 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
-import { environment } from '../../../environments/environment';
-import { signalFromRequest } from '../../shared/signal-from-request';
+import { createApiResource } from '../../shared/utils/create-api-resource';
 
 @Injectable({
     providedIn: 'root'
@@ -11,11 +10,10 @@ import { signalFromRequest } from '../../shared/signal-from-request';
 export class UserData {
     private http = inject(HttpClient);
 
-    public userList = signalFromRequest<User[]>(this.getAllUsers(), {
-        initialValue: [],
-        errorValue: [],
-        onError: (err) => console.error('an error occurred while loading the list of buyers', err),
-    });
+    public userList = createApiResource(
+        () => this.getAllUsers(),
+        { initialValue: [], errorValue: [], autoFetch: true }
+    );
 
     getAllUsers(): Observable<User[]> {
         return this.http.get<User[]>('/users');
