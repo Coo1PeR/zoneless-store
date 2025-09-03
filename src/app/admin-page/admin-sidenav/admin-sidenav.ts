@@ -15,6 +15,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class AdminSidenav {
     protected readonly sidenavLinks: NavLink[] = [
-        {label: 'Список покупателей', path: '/admin/users-list', icon: 'article_person'},
+        {label: 'Users', path: '/admin/users-list', icon: 'article_person'},
     ];
 }

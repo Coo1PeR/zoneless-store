@@ -4,7 +4,7 @@
             @for (link of sidenavLinks; track link.path) {
                 <li>
                     <a [routerLink]="link.path" class="admin-sidenav__link" routerLinkActive="admin-sienav__link_active">
-                        <mat-icon [fontIcon]="link.icon"/>
+                        <mat-icon [fontIcon]="link.icon" class="icon"/>
                         <p class="admin-sidenav__label body-2">
                             {{ link.label }}
                         </p>

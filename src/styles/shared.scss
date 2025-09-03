@@ -31,3 +31,16 @@
 .button-text {
     @include typography.button-text;
 }
+
+.icon {
+    color: var(--mat-sys-primary);
+    opacity: 0.65;
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 0.9;
+    }
+}

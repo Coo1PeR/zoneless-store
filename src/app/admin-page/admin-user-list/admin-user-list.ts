@@ -18,4 +18,8 @@ export class AdminUserList {
     protected userList = this.userData.userList.data;
     protected isLoadingUserList  = this.userData.userList.loading;
     protected displayedColumns = ['id', 'username', 'email'];
+
+    chooseUser(id: number) {
+        console.log('CHOOSE USER ID:', id);
+    }
 }

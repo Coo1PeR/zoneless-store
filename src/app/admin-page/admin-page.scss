@@ -3,3 +3,13 @@
     gap: 12px;
     max-height: 100vh;
 }
+
+.admin-page {
+    &__main {
+        width: 100%;
+        padding: 24px;
+        border-radius: 12px;
+        background-color: var(--mat-sys-surface);
+    }
+
+}
