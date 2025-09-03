@@ -10,7 +10,6 @@ import { signalFromRequest } from '../../shared/signal-from-request';
 })
 export class UserData {
     private http = inject(HttpClient);
-    private URL = environment.apiUrl;
 
     public userList = signalFromRequest<User[]>(this.getAllUsers(), {
         initialValue: [],
@@ -19,22 +18,22 @@ export class UserData {
     });
 
     getAllUsers(): Observable<User[]> {
-        return this.http.get<User[]>(`${this.URL}/users`);
+        return this.http.get<User[]>('/users');
     }
 
     getUserById(userId: number): Observable<User> {
-        return this.http.get<User>(`${this.URL}/users/${userId}`);
+        return this.http.get<User>(`/users/${userId}`);
     }
 
     addUser(user: User): Observable<User> {
-        return this.http.post<User>(`${this.URL}/users`, user);
+        return this.http.post<User>('/users', user);
     }
 
     updateUser(user: User): Observable<User> {
-        return this.http.put<User>(`${this.URL}/users/${user.id}`, user);
+        return this.http.put<User>(`/users/${user.id}`, user);
     }
 
     deleteUser(userId: number): Observable<void> {
-        return this.http.delete<void>(`${this.URL}/users/${userId}`);
+        return this.http.delete<void>(`/users/${userId}`);
     }
 }
