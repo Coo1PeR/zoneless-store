@@ -15,6 +15,13 @@ export class UserData {
         { initialValue: [], errorValue: [], autoFetch: true }
     );
 
+    public createUserResource(userId: number) {
+        return createApiResource(
+            () => this.getUserById(userId),
+            { initialValue: null, errorValue: null, autoFetch: true }
+        );
+    }
+
     getAllUsers(): Observable<UserModel[]> {
         return this.http.get<UserModel[]>('/users');
     }

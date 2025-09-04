@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+
+.mat-mdc-card.mdc-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .mat-mdc-card-header-text,.mat-mdc-card-content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
