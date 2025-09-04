@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
+import { UserModel } from '../models/userModel';
 import { createApiResource } from '../../shared/utils/create-api-resource';
 
 @Injectable({
@@ -15,20 +15,20 @@ export class UserData {
         { initialValue: [], errorValue: [], autoFetch: true }
     );
 
-    getAllUsers(): Observable<User[]> {
-        return this.http.get<User[]>('/users');
+    getAllUsers(): Observable<UserModel[]> {
+        return this.http.get<UserModel[]>('/users');
     }
 
-    getUserById(userId: number): Observable<User> {
-        return this.http.get<User>(`/users/${userId}`);
+    getUserById(userId: number): Observable<UserModel> {
+        return this.http.get<UserModel>(`/users/${userId}`);
     }
 
-    addUser(user: User): Observable<User> {
-        return this.http.post<User>('/users', user);
+    addUser(user: UserModel): Observable<UserModel> {
+        return this.http.post<UserModel>('/users', user);
     }
 
-    updateUser(user: User): Observable<User> {
-        return this.http.put<User>(`/users/${user.id}`, user);
+    updateUser(user: UserModel): Observable<UserModel> {
+        return this.http.put<UserModel>(`/users/${user.id}`, user);
     }
 
     deleteUser(userId: number): Observable<void> {
