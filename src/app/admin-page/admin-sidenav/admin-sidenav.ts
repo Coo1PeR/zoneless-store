@@ -20,5 +20,6 @@ import { MatButtonModule } from '@angular/material/button';
 export class AdminSidenav {
     protected readonly sidenavLinks: NavLink[] = [
         {label: 'Users', path: '/admin/users-list', icon: 'article_person'},
+        {label: 'Products', path: '/admin/products-list', icon: 'storefront'},
     ];
 }

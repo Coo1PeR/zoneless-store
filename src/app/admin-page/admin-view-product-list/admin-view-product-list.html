@@ -1,0 +1,58 @@
+@if (isLoadingProductList()) {
+    <mat-spinner></mat-spinner>
+} @else {
+    @if (productList().data.length > 0) {
+        <h2 class="title-2">Products list</h2>
+
+        <mat-card appearance="raised">
+            <mat-card-content>
+                <table
+                    mat-table
+                    [dataSource]="productList()"
+                    matSort
+                    class="mat-elevation-z8 admin-view-product-list__table">
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+                        <td mat-cell *matCellDef="let product"> {{ product.id }}</td>
+                    </ng-container>
+
+                    <!-- Category Column -->
+                    <ng-container matColumnDef="category">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category</th>
+                        <td mat-cell *matCellDef="let product"> {{ product.category }}</td>
+                    </ng-container>
+
+                    <!-- Title Column -->
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title</th>
+                        <td mat-cell *matCellDef="let product"> {{ product.title | titlecase }}</td>
+                    </ng-container>
+
+
+                    <!-- Price Column -->
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price</th>
+                        <td mat-cell *matCellDef="let product"> {{ product.price | currency }}</td>
+                    </ng-container>
+
+                    <!-- Image Column -->
+                    <ng-container matColumnDef="image">
+                        <th mat-header-cell *matHeaderCellDef> Image </th>
+                        <td mat-cell *matCellDef="let product">
+                            <img [ngSrc]="product.image" width="100" height="100" [alt]="product.description">
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator
+                    [pageSizeOptions]="[5, 10, 25, 100]"
+                    class="admin-view-product-list__paginator"
+                    aria-label="Select page of products"/>
+            </mat-card-content>
+        </mat-card>
+    }
+}
