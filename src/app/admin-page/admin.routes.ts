@@ -7,12 +7,12 @@ export const AdminRoutes: Routes = [
             {
                 path: '',
                 title: 'Users List',
-                loadComponent: () => import('./admin-user-list/admin-user-list').then(m => m.AdminUserList),
+                loadComponent: () => import('./admin-user-list/admin-view-user-list').then(m => m.AdminViewUserList),
             },
             {
                 path: ':userId',
                 title: 'User',
-                loadComponent: () => import('./admin-user/admin-user').then(m => m.AdminUser),
+                loadComponent: () => import('./admin-user/admin-view-user').then(m => m.AdminViewUser),
             }
         ]
     }

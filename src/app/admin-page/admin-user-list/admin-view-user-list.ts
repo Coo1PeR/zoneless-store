@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 import { MatCard, MatCardContent } from '@angular/material/card';
 
 @Component({
-    selector: 'app-admin-user-list',
+    selector: 'app-admin-view-user-list',
     imports: [
         MatProgressSpinnerModule,
         MatTableModule,
@@ -14,10 +14,10 @@ import { MatCard, MatCardContent } from '@angular/material/card';
         MatCard,
         MatCardContent,
     ],
-    templateUrl: './admin-user-list.html',
-    styleUrl: './admin-user-list.scss'
+    templateUrl: './admin-view-user-list.html',
+    styleUrl: './admin-view-user-list.scss'
 })
-export class AdminUserList {
+export class AdminViewUserList {
     private userData = inject(UserData);
 
     protected userList = this.userData.userList.data;

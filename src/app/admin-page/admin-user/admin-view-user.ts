@@ -7,17 +7,17 @@ import { MatCardModule } from '@angular/material/card';
 import { SkeletonText } from '../../shared/skeleton-text/skeleton-text';
 
 @Component({
-  selector: 'app-admin-user',
+  selector: 'app-admin-view-user',
     imports: [
         BackButton,
         TitleCasePipe,
         MatCardModule,
         SkeletonText
     ],
-  templateUrl: './admin-user.html',
-  styleUrl: './admin-user.scss'
+  templateUrl: './admin-view-user.html',
+  styleUrl: './admin-view-user.scss'
 })
-export class AdminUser {
+export class AdminViewUser {
     private route = inject(ActivatedRoute);
     private userData = inject(UserData);
 
