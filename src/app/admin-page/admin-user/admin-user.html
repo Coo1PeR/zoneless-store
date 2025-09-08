@@ -1,24 +1,33 @@
+@let loading = userResource.loading();
+
 <app-back-button/>
 <h2 class="title-2">User details</h2>
 <mat-card appearance="raised">
     <mat-card-header>
         <mat-card-title>
-            @if(userResource.loading()) {
-                <app-skeleton/>
-            } @else {
+            <app-skeleton-text [loading]="loading">
                 {{ fullName() | titlecase }}
-            }
+            </app-skeleton-text>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        @if(userResource.loading()) {
-            <p>📞 <app-skeleton [height]="14" [width]="120"/></p>
-            <p>🏡 <app-skeleton [height]="14"/></p>
-            <p>📧 <app-skeleton [height]="14" [width]="140"/></p>
-        } @else {
-            <p>📞 {{ userResource.data()?.phone || '...' }}</p>
-            <p>🏡 {{ fullAddress() || '...' }}</p>
-            <p>📧 {{ userResource.data()?.email || '...' }}</p>
-        }
+        <p>
+            📞
+            <app-skeleton-text [loading]="loading" [height]="14" [width]="120">
+                {{ userResource.data()?.phone }}
+            </app-skeleton-text>
+        </p>
+        <p>
+            🏡
+            <app-skeleton-text [loading]="loading" [height]="14">
+                {{ fullAddress() }}
+            </app-skeleton-text>
+        </p>
+        <p>
+            📧
+            <app-skeleton-text [loading]="loading" [height]="14" [width]="140">
+                {{ userResource.data()?.email }}
+            </app-skeleton-text>
+        </p>
     </mat-card-content>
 </mat-card>

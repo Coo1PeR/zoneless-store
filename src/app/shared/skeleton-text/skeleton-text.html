@@ -1,0 +1,10 @@
+@if(loading()) {
+    <app-skeleton [width]="width()"
+                  [height]="height()"
+                  class="skeleton-text__fade"/>
+}
+<span class="skeleton-text__fade"
+      [class.hidden]="loading()"
+>
+  <ng-content></ng-content>
+</span>

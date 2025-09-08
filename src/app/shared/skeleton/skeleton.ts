@@ -14,7 +14,7 @@ export class Skeleton {
     public height = input<string | number>('100%');
     public radius = input<number>(4);
 
-    style = computed(() => ({
+    protected style = computed(() => ({
         width: typeof this.width() === 'number' ? `${this.width()}px` : this.width(),
         height: typeof this.height() === 'number' ? `${this.height()}px` : this.height(),
         borderRadius: `${this.radius()}px`,

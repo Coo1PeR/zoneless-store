@@ -4,7 +4,7 @@ import { UserData } from '../../core/services/user-data';
 import { BackButton } from '../../shared/back-button/back-button';
 import { TitleCasePipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { Skeleton } from '../../shared/skeleton/skeleton';
+import { SkeletonText } from '../../shared/skeleton-text/skeleton-text';
 
 @Component({
   selector: 'app-admin-user',
@@ -12,7 +12,7 @@ import { Skeleton } from '../../shared/skeleton/skeleton';
         BackButton,
         TitleCasePipe,
         MatCardModule,
-        Skeleton
+        SkeletonText
     ],
   templateUrl: './admin-user.html',
   styleUrl: './admin-user.scss'
@@ -26,7 +26,7 @@ export class AdminUser {
 
     protected fullName = computed(() => {
         const user = this.userResource.data();
-        return user ? `${user.name.firstname} ${user.name.lastname}` : 'Loading...';
+        return user ? `${user.name.firstname} ${user.name.lastname}` : '';
     });
     protected fullAddress = computed(() => {
         const user = this.userResource.data();
