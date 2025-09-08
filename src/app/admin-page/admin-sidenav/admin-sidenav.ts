@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavLink } from '../../core/models/nav-link';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'app-admin-sidenav',
@@ -9,6 +11,8 @@ import { MatIconModule } from '@angular/material/icon';
         RouterLink,
         RouterLinkActive,
         MatIconModule,
+        MatListModule,
+        MatButtonModule,
     ],
     templateUrl: './admin-sidenav.html',
     styleUrl: './admin-sidenav.scss'

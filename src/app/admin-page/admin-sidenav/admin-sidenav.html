@@ -1,18 +1,20 @@
 <div class="admin-sidenav__top">
-    <nav>
-        <ul>
-            @for (link of sidenavLinks; track link.path) {
-                <li>
-                    <a [routerLink]="link.path" class="admin-sidenav__link" routerLinkActive="admin-sienav__link_active">
-                        <mat-icon [fontIcon]="link.icon" class="icon"/>
-                        <p class="admin-sidenav__label body-2">
-                            {{ link.label }}
-                        </p>
-                    </a>
-                </li>
-            }
-        </ul>
-    </nav>
+    <mat-nav-list>
+        @for (link of sidenavLinks; track link.path) {
+            <mat-list-item [activated]="rla.isActive">
+                <a
+                    matListItemTitle
+                    [routerLink]="link.path"
+                    routerLinkActive #rla="routerLinkActive"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    class="admin-sidenav__link"
+                >
+                    <mat-icon class="admin-sidenav__icon" [fontIcon]="link.icon" />
+                    <span class="admin-sidenav__label">{{ link.label }}</span>
+                </a>
+            </mat-list-item>
+        }
+    </mat-nav-list>
 
 </div>
 <div class="admin-sidenav__bottom"></div>

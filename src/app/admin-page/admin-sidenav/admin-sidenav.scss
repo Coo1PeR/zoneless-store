@@ -21,22 +21,12 @@
     &__link {
         display: flex;
         gap: 8px;
-        cursor: pointer;
-        padding: 14px 16px;
-        // color: var(--mat-sys-primary);
+        padding: 0 16px;
     }
 
     &__icon {
         color: var(--mat-sys-primary);
-        opacity: 0.65;
-
-        &:hover {
-            opacity: 0.8;
-        }
-
-        &:active {
-            opacity: 0.9;
-        }
+        opacity: 0.8;
     }
 
     &__label {
