@@ -1,6 +1,10 @@
+@use "animation";
+
 :host {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 48px;
+
+    @include animation.fade-in();
 }

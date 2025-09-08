@@ -1,0 +1,122 @@
+//
+// Base
+//
+@mixin animation($name, $duration: 0.3s, $easing: ease, $delay: 0s, $fill: both) {
+    -webkit-animation: $name $duration $easing $delay $fill;
+    animation: $name $duration $easing $delay $fill;
+}
+
+//
+// Fade In
+//
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@mixin fade-in($duration: 0.3s, $easing: ease, $delay: 0s) {
+    @include animation(fade-in, $duration, $easing, $delay);
+}
+
+//
+// Fade Out
+//
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@mixin fade-out($duration: 0.3s, $easing: ease, $delay: 0s) {
+    @include animation(fade-out, $duration, $easing, $delay);
+}
+
+//
+// Fade In-Out
+//
+@keyframes fade-in-out {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+@mixin fade-in-out($duration: 0.3s, $easing: ease-in-out, $delay: 0s) {
+    @include animation(fade-in-out, $duration, $easing, $delay, both);
+}
+
+//
+// Slide Up
+//
+@keyframes slide-up {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@mixin slide-up($duration: 0.3s, $easing: ease-out, $delay: 0s) {
+    @include animation(slide-up, $duration, $easing, $delay);
+}
+
+//
+// Slide Down
+//
+@keyframes slide-down {
+    0% { transform: translateY(-20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@mixin slide-down($duration: 0.3s, $easing: ease-out, $delay: 0s) {
+    @include animation(slide-down, $duration, $easing, $delay);
+}
+
+//
+// Slide Left
+//
+@keyframes slide-left {
+    0% { transform: translateX(20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@mixin slide-left($duration: 0.3s, $easing: ease-out, $delay: 0s) {
+    @include animation(slide-left, $duration, $easing, $delay);
+}
+
+//
+// Slide Right
+//
+@keyframes slide-right {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@mixin slide-right($duration: 0.3s, $easing: ease-out, $delay: 0s) {
+    @include animation(slide-right, $duration, $easing, $delay);
+}
+
+//
+// Pulse
+//
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@mixin pulse($duration: 0.3s, $easing: ease-in-out, $delay: 0s) {
+    @include animation(pulse, $duration, $easing, $delay, both);
+}
+
+//
+// Easy In-Out Transition
+//
+@mixin easy-in-out($props: color, $duration: 0.3s, $easing: ease-in-out) {
+    transition: #{$props} $duration $easing;
+}
+
+//
+// Preset for all
+//
+@mixin easy-in-out-all($duration: 0.3s, $easing: ease-in-out) {
+    transition: color $duration $easing,
+    background-color $duration $easing,
+    border-color $duration $easing,
+    box-shadow $duration $easing;
+}
+
