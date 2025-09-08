@@ -4,6 +4,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { MatCard, MatCardContent } from '@angular/material/card';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
     selector: 'app-admin-view-user-list',
@@ -13,6 +14,7 @@ import { MatCard, MatCardContent } from '@angular/material/card';
         RouterLink,
         MatCard,
         MatCardContent,
+        TitleCasePipe,
     ],
     templateUrl: './admin-view-user-list.html',
     styleUrl: './admin-view-user-list.scss'
@@ -22,5 +24,5 @@ export class AdminViewUserList {
 
     protected userList = this.userData.userList.data;
     protected isLoadingUserList  = this.userData.userList.loading;
-    protected displayedColumns = ['id', 'username', 'email'];
+    protected displayedColumns = ['id', 'username', 'city', 'phone', 'email', ];
 }
