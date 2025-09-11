@@ -5,6 +5,7 @@ import { BackButton } from '../../shared/back-button/back-button';
 import { TitleCasePipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { SkeletonText } from '../../shared/skeleton-text/skeleton-text';
+import { AdminViewUserCartList } from '../admin-view-user-cart-list/admin-view-user-cart-list';
 
 @Component({
   selector: 'app-admin-view-user',
@@ -12,7 +13,8 @@ import { SkeletonText } from '../../shared/skeleton-text/skeleton-text';
         BackButton,
         TitleCasePipe,
         MatCardModule,
-        SkeletonText
+        SkeletonText,
+        AdminViewUserCartList
     ],
   templateUrl: './admin-view-user.html',
   styleUrl: './admin-view-user.scss'
@@ -21,8 +23,8 @@ export class AdminViewUser {
     private route = inject(ActivatedRoute);
     private userData = inject(UserData);
 
-    protected partyId = computed(() => Number(this.route.snapshot.paramMap.get('userId')!));
-    protected userResource = this.userData.createUserResource(this.partyId());
+    protected userId = computed(() => Number(this.route.snapshot.paramMap.get('userId')!));
+    protected userResource = this.userData.createUserResource(this.userId());
 
     protected fullName = computed(() => {
         const user = this.userResource.data();

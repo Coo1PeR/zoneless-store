@@ -1,7 +1,9 @@
 @let loading = userResource.loading();
 
 <app-back-button/>
+
 <h2 class="title-2">User details</h2>
+
 <mat-card appearance="raised">
     <mat-card-header>
         <mat-card-title>
@@ -31,3 +33,5 @@
         </p>
     </mat-card-content>
 </mat-card>
+
+<app-admin-view-user-cart-list [userId]="userId()"/>

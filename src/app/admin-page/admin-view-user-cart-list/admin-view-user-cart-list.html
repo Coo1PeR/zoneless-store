@@ -1,0 +1,19 @@
+@if (cartList().length > 0) {
+    <h3 class="title-3">Carts</h3>
+
+    <mat-accordion>
+        @for (cart of cartList(); track cart.id) {
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title> ID: {{ cart.id }} </mat-panel-title>
+                    <mat-panel-description>
+                        {{ cart.date | date: 'dd.MM.yyyy' }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <app-admin-view-user-cart [cart]="cart.products"/>
+            </mat-expansion-panel>
+        }
+    </mat-accordion>
+}
+
+
