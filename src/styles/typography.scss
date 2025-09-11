@@ -1,19 +1,9 @@
 @font-face {
     font-family: 'Roboto Flex';
-    src: url('/assets/fonts/roboto-flex-latin-400-normal.woff2') format('woff2');
-    font-style: normal;
-    font-display: swap;
+    src: url('/assets/fonts/RobotoFlex-Variable.ttf') format('truetype-variations');
     font-weight: 100 1000;
-    font-stretch: 25% 151%;
-}
-
-@font-face {
-    font-family: 'Roboto Flex';
-    src: url('/assets/fonts/roboto-flex-cyrillic-400-normal.woff2') format('woff2');
+    font-stretch: 75% 125%;
     font-style: normal;
-    font-display: swap;
-    font-weight: 100 1000;
-    font-stretch: 25% 151%;
 }
 
 $font-family-primary: 'Roboto Flex', system-ui, -apple-system, sans-serif;
