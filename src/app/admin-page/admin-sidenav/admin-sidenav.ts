@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NavLink } from '../../core/models/nav-link-model';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     styleUrl: './admin-sidenav.scss'
 })
 export class AdminSidenav {
+    protected isCollapsed = signal(false);
     protected readonly sidenavLinks: NavLink[] = [
         {label: 'Users', path: '/admin/users-list', icon: 'supervised_user_circle'},
         {label: 'Products', path: '/admin/products-list', icon: 'storefront'},

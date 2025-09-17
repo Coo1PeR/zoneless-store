@@ -1,5 +1,11 @@
-<div class="admin-sidenav__top">
-    <mat-nav-list>
+@let collapsed = isCollapsed();
+
+<div class="admin-sidenav__top" [class.admin-sidenav__top_collapsed]="collapsed">
+    <mat-nav-list class="admin-sidenav__nav-list">
+        <button matMiniFab class="admin-sidenav__collapse-button" (click)="isCollapsed.set(!collapsed)">
+            <mat-icon>menu</mat-icon>
+        </button>
+
         @for (link of sidenavLinks; track link.path) {
             <mat-list-item [activated]="rla.isActive">
                 <a
@@ -8,9 +14,13 @@
                     routerLinkActive #rla="routerLinkActive"
                     [routerLinkActiveOptions]="{ exact: true }"
                     class="admin-sidenav__link"
+                    [class.admin-sidenav__link_collapsed]="collapsed"
                 >
-                    <mat-icon class="admin-sidenav__icon" [fontIcon]="link.icon" />
-                    <span class="admin-sidenav__label">{{ link.label }}</span>
+                    <mat-icon class="admin-sidenav__icon">{{ link.icon }}</mat-icon>
+                    <span class="admin-sidenav__label"
+                          [class.admin-sidenav__label_collapsed]="collapsed">
+                        {{ link.label }}
+                    </span>
                 </a>
             </mat-list-item>
         }
