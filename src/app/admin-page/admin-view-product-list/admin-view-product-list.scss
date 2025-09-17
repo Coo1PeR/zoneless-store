@@ -17,4 +17,30 @@
     &__paginator {
         background: none;
     }
+
+    &__image {
+        width: 100px;
+        height: 100px;
+        margin: 12px 0;
+        object-fit: contain;
+        crop: auto;
+        @include animation.fade-in();
+    }
 }
+
+.mat-column-id {
+    width: 6%;
+}
+.mat-column-category {
+    width: 12%;
+}
+.mat-column-title {
+    width: auto;
+}
+.mat-column-price {
+    width: 10%;
+}
+.mat-column-image {
+    width: 132px;
+}
+

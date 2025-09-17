@@ -40,7 +40,8 @@
                     <ng-container matColumnDef="image">
                         <th mat-header-cell *matHeaderCellDef> Image </th>
                         <td mat-cell *matCellDef="let product">
-                            <img [ngSrc]="product.image" width="100" height="100" [alt]="product.description">
+                            <img [src]="product.image"
+                                 class="admin-view-product-list__image" [alt]="product.description">
                         </td>
                     </ng-container>
 
