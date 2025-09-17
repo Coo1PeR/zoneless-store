@@ -38,6 +38,11 @@
         &_collapsed {
             padding: 0 8px;
         }
+
+        &.active-link > .admin-sidenav__label {
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
     }
 
     &__icon {

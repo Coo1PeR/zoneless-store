@@ -11,7 +11,8 @@
                 <a
                     matListItemTitle
                     [routerLink]="link.path"
-                    routerLinkActive #rla="routerLinkActive"
+                    routerLinkActive="active-link"
+                    #rla="routerLinkActive"
                     [routerLinkActiveOptions]="{ exact: true }"
                     class="admin-sidenav__link"
                     [class.admin-sidenav__link_collapsed]="collapsed"
