@@ -1,0 +1,4 @@
+:root {
+    --border-color: oklch(from var(--mat-sys-primary) calc(l + 0.22) calc(c * 0.9) h / 30%);
+    --border-shadow: oklch(from var(--mat-sys-primary) calc(l + 0.22) calc(c * 0.9) h / 20%);
+}
