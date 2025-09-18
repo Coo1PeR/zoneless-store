@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
     styleUrl: './admin-sidenav.scss'
 })
 export class AdminSidenav {
-    protected isCollapsed = signal(false);
+    protected isCollapsed = signal(true);
     protected readonly sidenavLinks: NavLink[] = [
         {label: 'Users', path: '/admin/users-list', icon: 'supervised_user_circle'},
         {label: 'Products', path: '/admin/products-list', icon: 'storefront'},
