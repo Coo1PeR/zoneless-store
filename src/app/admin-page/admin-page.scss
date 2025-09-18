@@ -1,14 +1,15 @@
 :host {
     display: flex;
-    gap: 12px;
+    gap: 16px;
 }
 
 .admin-page {
     &__main {
         width: 100%;
-        padding: 24px 48px;
-        border-radius: 12px;
+        padding: 20px 24px;
+        border-radius: 12px 0 0 12px;
         background-color: var(--mat-sys-surface);
+        border: 1px solid var(--border-color);
     }
 
 }
